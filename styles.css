@@ -230,15 +230,113 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.2));
 }
 
+/* Elastic Interaction managed by JS */
 .orb {
     width: 300px;
     height: 300px;
     background: radial-gradient(circle at 30% 30%, var(--secondary), var(--primary));
     border-radius: 50%;
-    box-shadow: 0 0 60px rgba(138, 43, 226, 0.5);
+    box-shadow:
+        inset -10px -10px 20px rgba(0, 0, 0, 0.5),
+        inset 10px 10px 20px rgba(255, 255, 255, 0.4);
+    /* Removed Morph animation to allow full JS control for "Venom" feel, 
+    /* Removed Morph animation to allow full JS control for "Venom" feel,
+       or we apply it to a wrapper? Let's keep it but make it subtle or overrideable */
     animation: morph 8s ease-in-out infinite;
+    cursor: grab;
+    position: relative;
+    overflow: hidden;
+    /* Physics managed by JS for ultimate smoothness */
+    /* Transition removed to let JS loop handle the ease */
+    user-select: none;
+    will-change: transform, border-radius, background;
+    /* We keep the morph only */
+}
+
+.orb:active {
+    cursor: grabbing;
+}
+
+/* Dynamic Wet Highlight */
+.orb::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.8) 0%, transparent 20%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+
+.orb:hover::after {
+    opacity: 1;
+}
+
+/* Water Ripple Wave (Click) */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-anim 0.8s ease-out;
+    /* Smoother ease */
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+}
+
+/* Mini Ripple (Hover Move) */
+.ripple-mini {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-anim 0.6s ease-out;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+}
+
+@keyframes ripple-anim {
+    to {
+        transform: scale(3);
+        opacity: 0;
+        border-width: 0;
+    }
+}
+
+/* Removed CSS .splashing animation to prevent refresh glitch */
+/* Splash/Wobble Effect on Click */
+
+
+/* Animations */
+@keyframes morph {
+    0% {
+        border-radius: 50%;
+    }
+
+    25% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+
+    50% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+
+    75% {
+        border-radius: 40% 60% 30% 60% / 40% 50% 60% 50%;
+    }
+
+    100% {
+        border-radius: 50%;
+    }
 }
 
 /* Skills Section */
