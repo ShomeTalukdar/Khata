@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shome Talukdar | Game Dev & Designer</title>
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons (via unpkg for vanilla) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Background Elements -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">SHOME<span class="dot">.</span></div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="menu-toggle" id="mobile-menu">
+            <i data-lucide="menu"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h2 class="animate-fade-up" style="animation-delay: 0.1s;">Hello, I'm</h2>
+            <h1 class="glitch-text animate-fade-up" style="animation-delay: 0.2s;" data-text="Shome Talukdar">Shome
+                Talukdar</h1>
+            <p class="subtitle animate-fade-up" style="animation-delay: 0.3s;">
+                Game Developer | <span class="highlight">Unreal & Unity</span> | Designer
+            </p>
+            <div class="cta-buttons animate-fade-up" style="animation-delay: 0.4s;">
+                <a href="#projects" class="btn primary">View My Work</a>
+                <a href="#contact" class="btn secondary">Contact Me</a>
+            </div>
+        </div>
+        <div class="hero-visual animate-fade-in" style="animation-delay: 0.5s;">
+            <!-- Placeholder for 3D element or Abstract Graphic -->
+            <div class="orb"></div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">My Arsenal</h2>
+        <div class="skills-grid">
+            <!-- Skill Cards -->
+            <div class="skill-card">
+                <i data-lucide="gamepad-2"></i>
+                <h3>Unity</h3>
+                <p>C# Scripting, Level Design, 2D/3D</p>
+            </div>
+            <div class="skill-card">
+                <i data-lucide="box"></i>
+                <h3>Unreal Engine</h3>
+                <p>Blueprints, C++, Lighting</p>
+            </div>
+            <div class="skill-card">
+                <i data-lucide="code-2"></i>
+                <h3>Programming</h3>
+                <p>C, Python, C++, C#</p>
+            </div>
+            <div class="skill-card">
+                <i data-lucide="palette"></i>
+                <h3>Design</h3>
+                <p>Canva, Blender, UI/UX</p>
+            </div>
+            <div class="skill-card">
+                <i data-lucide="megaphone"></i>
+                <h3>Marketing</h3>
+                <p>Digital Strategy, Branding</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Selected Works</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('assets/fps_shooter.png');"></div>
+                <div class="project-info">
+                    <h3>FPS Prototype</h3>
+                    <p>High-octane shooter built in Unreal Engine 5.</p>
+                    <div class="tags"><span>UE5</span><span>C++</span></div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('assets/mario_platformer.png');"></div>
+                <div class="project-info">
+                    <h3>2D Platformer</h3>
+                    <p>Classic mechanics with modern lighting in Unity.</p>
+                    <div class="tags"><span>Unity</span><span>C#</span></div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('assets/blue_cube_render.png');"></div>
+                <div class="project-info">
+                    <h3>Product Render</h3>
+                    <p>Photorealistic 3D product showcase using Blender.</p>
+                    <div class="tags"><span>Blender</span><span>Cycles</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-box">
+            <h2>Let's Create Something Awesome</h2>
+            <p>Open for collaborations and freelance projects.</p>
+            <a href="mailto:shome@example.com" class="btn primary">Get In Touch</a>
+            <div class="social-links">
+                <a href="#"><i data-lucide="linkedin"></i></a>
+                <a href="#"><i data-lucide="github"></i></a>
+                <a href="#"><i data-lucide="instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Shome Talukdar. Made with <i data-lucide="heart" class="icon-small"></i> & Code.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
