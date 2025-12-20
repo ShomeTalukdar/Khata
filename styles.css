@@ -1,19 +1,28 @@
-/* Global Variables & Reset */
 :root {
-    --bg-color: #050505;
-    --card-bg: rgba(255, 255, 255, 0.03);
-    --card-border: rgba(255, 255, 255, 0.05);
-    --primary: #8a2be2;
-    /* BlueViolet */
-    --secondary: #00ffff;
-    /* Cyan */
-    --accent: #ff00ff;
-    /* Magenta */
+    --bg-color: #000000;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    /* Slightly brighter for contrast */
+    --card-border: rgba(255, 255, 255, 0.15);
+    --primary: #ffffff;
+    /* White */
+    --secondary: #a1a1aa;
+    /* Zinc-400 (Silver) */
+    --accent: #52525b;
+    /* Zinc-600 (Dark Gray) */
     --text-main: #ffffff;
-    --text-muted: #a1a1aa;
+    --text-muted: #d4d4d8;
     --font-main: 'Outfit', sans-serif;
     --nav-height: 80px;
+
+    /* Restored Neon Accents */
+    --neon-purple: #8a2be2;
+    --neon-cyan: #00ffff;
+    --neon-pink: #ff00ff;
 }
+
+/* ... existing code ... */
+
+
 
 * {
     margin: 0;
@@ -33,30 +42,104 @@ body {
     line-height: 1.6;
 }
 
-/* Background Glow Effects */
+/* Galaxy Background Effects */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background:
+        radial-gradient(1px 1px at 10% 10%, #fff, transparent),
+        radial-gradient(2px 2px at 20% 20%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 30% 30%, #fff, transparent),
+        radial-gradient(2.5px 2.5px at 40% 40%, #fff, transparent),
+        radial-gradient(1px 1px at 50% 50%, #fff, transparent),
+        radial-gradient(2px 2px at 60% 60%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 70% 70%, #fff, transparent),
+        radial-gradient(3px 3px at 80% 80%, #fff, transparent),
+        radial-gradient(1px 1px at 90% 90%, #fff, transparent);
+    background-size: 550px 550px;
+    opacity: 0.8;
+    animation: stars-move 100s linear infinite;
+}
+
+.stars2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background:
+        radial-gradient(2px 2px at 5% 25%, #fff, transparent),
+        radial-gradient(3px 3px at 15% 75%, #fff, transparent),
+        radial-gradient(1px 1px at 25% 15%, #fff, transparent),
+        radial-gradient(2px 2px at 35% 85%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 45% 5%, #fff, transparent),
+        radial-gradient(2.5px 2.5px at 55% 95%, #fff, transparent),
+        radial-gradient(1px 1px at 65% 35%, #fff, transparent),
+        radial-gradient(2px 2px at 75% 65%, #fff, transparent),
+        radial-gradient(3px 3px at 85% 45%, #fff, transparent),
+        radial-gradient(1px 1px at 95% 55%, #fff, transparent);
+    background-size: 400px 400px;
+    opacity: 0.6;
+    animation: stars-move 150s linear infinite;
+}
+
+.stars3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background:
+        radial-gradient(1px 1px at 12% 52%, #fff, transparent),
+        radial-gradient(2px 2px at 82% 12%, #fff, transparent),
+        radial-gradient(0.5px 0.5px at 32% 92%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 62% 32%, #fff, transparent);
+    background-size: 200px 200px;
+    /* High density */
+    opacity: 0.4;
+    animation: stars-move 200s linear infinite;
+}
+
 .bg-glow {
     position: fixed;
-    width: 600px;
-    height: 600px;
+    width: 800px;
+    height: 800px;
     border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.15;
+    filter: blur(120px);
+    opacity: 0.08;
+    /* Very subtle fog */
     z-index: -1;
     pointer-events: none;
 }
 
 .bg-glow-1 {
-    top: -200px;
+    top: -300px;
     left: -200px;
-    background: var(--primary);
-    animation: floating 10s infinite alternate;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+    animation: floating 25s infinite alternate;
 }
 
 .bg-glow-2 {
-    bottom: -200px;
+    bottom: -300px;
     right: -200px;
-    background: var(--secondary);
-    animation: floating 12s infinite alternate-reverse;
+    background: radial-gradient(circle, rgba(200, 200, 200, 0.8) 0%, transparent 70%);
+    animation: floating 30s infinite alternate-reverse;
+}
+
+@keyframes stars-move {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 1000px 1000px;
+    }
 }
 
 /* Typography */
@@ -149,7 +232,7 @@ ul {
 }
 
 .dot {
-    color: var(--primary);
+    color: var(--neon-purple);
 }
 
 .nav-links {
@@ -174,7 +257,7 @@ ul {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background: var(--primary);
+    background: var(--neon-purple);
     transition: 0.3s;
 }
 
@@ -187,6 +270,20 @@ ul {
     cursor: pointer;
 }
 
+/* Utility Classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.highlight {
+    color: transparent;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
 /* Hero Section */
 #hero {
     height: 100vh;
@@ -195,6 +292,7 @@ ul {
     justify-content: space-between;
     padding: 0 10%;
     position: relative;
+    z-index: 1;
 }
 
 .hero-content {
@@ -204,23 +302,21 @@ ul {
 
 .hero-content h2 {
     font-size: 2rem;
-    color: var(--text-muted);
-    font-weight: 400;
-    margin-bottom: 1rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
 }
 
 .hero-content h1 {
-    font-size: 4.5rem;
+    font-size: 5rem;
+    line-height: 1;
     margin-bottom: 1rem;
-    background: linear-gradient(to right, #fff, #b1b1b1);
-    -webkit-background-clip: text;
-    background-clip: text;
+    position: relative;
 }
 
-.hero-content .subtitle {
-    font-size: 1.2rem;
+.subtitle {
+    font-size: 1.5rem;
     color: var(--text-muted);
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .hero-visual {
@@ -230,11 +326,35 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.2));
 }
 
-/* Elastic Interaction managed by JS */
+/* ... existing btn styles ... */
+
+/* ... later in file for Glitch ... */
+
+.glitch-text::before {
+    left: 2px;
+    text-shadow: -1px 0 #ff00c1;
+    /* Pink Restored */
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+    left: -2px;
+    text-shadow: -1px 0 #00fff9;
+    /* Cyan Restored */
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
 .orb {
+    /* Cosmic Colors Override */
+    --primary: #8a2be2;
+    /* Neon Purple */
+    --secondary: #00ffff;
+    /* Neon Cyan */
+
     width: 300px;
     height: 300px;
     background: radial-gradient(circle at 30% 30%, var(--secondary), var(--primary));
@@ -502,7 +622,7 @@ ul {
 }
 
 .social-links a:hover {
-    background: var(--primary);
+    background: var(--neon-purple);
     transform: translateY(-5px);
 }
 
@@ -597,14 +717,14 @@ footer {
 
 .glitch-text::before {
     left: 2px;
-    text-shadow: -1px 0 #ff00c1;
+    text-shadow: -1px 0 var(--neon-pink);
     clip: rect(44px, 450px, 56px, 0);
     animation: glitch-anim 5s infinite linear alternate-reverse;
 }
 
 .glitch-text::after {
     left: -2px;
-    text-shadow: -1px 0 #00fff9;
+    text-shadow: -1px 0 var(--neon-cyan);
     clip: rect(44px, 450px, 56px, 0);
     animation: glitch-anim2 5s infinite linear alternate-reverse;
 }
@@ -694,6 +814,12 @@ footer {
     }
 
     .orb {
+        /* Local Override for Cosmic Colors */
+        --primary: #8a2be2;
+        /* BlueViolet */
+        --secondary: #00ffff;
+        /* Cyan */
+
         width: 200px;
         height: 200px;
     }
