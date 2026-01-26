@@ -1,0 +1,18 @@
+import React from 'react';
+
+function App() {
+  return (
+    <div style={{ padding: '40px', textAlign: 'center' }}>
+      <h1 style={{ color: '#0ea5e9' }}>Bahi Khata Prototype</h1>
+      <p>If you can see this, the app is loading correctly.</p>
+      <button 
+        onClick={() => window.location.reload()}
+        style={{ padding: '10px 20px', background: '#0ea5e9', color: 'white', border: 'none', borderRadius: '8px' }}
+      >
+        Reload App
+      </button>
+    </div>
+  );
+}
+
+export default App;

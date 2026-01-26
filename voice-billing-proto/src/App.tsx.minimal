@@ -1,0 +1,18 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
+const TestHome = () => <div style={{padding: '20px'}}><h1>Home Page Works!</h1><Link to="/test">Go to Test</Link></div>;
+const TestOther = () => <div style={{padding: '20px'}}><h1>Test Page Works!</h1><Link to="/">Back Home</Link></div>;
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<TestHome />} />
+        <Route path="/test" element={<TestOther />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;

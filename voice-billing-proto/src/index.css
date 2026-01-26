@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  --color-shop-primary: #10b981;
+  /* Royal Emerald Green */
+  --color-shop-secondary: #059669;
+  /* Darker Green */
+  --color-shop-accent: #fbbf24;
+  /* Golden Yellow */
+  --color-shop-bg: #0f172a;
+  /* Slate 900 (Dark Black-Blue) */
+  --color-shop-surface: #1e293b;
+  /* Slate 800 (Surface) */
+  --color-shop-text: #f1f5f9;
+  /* Slate 100 (White) */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  color-scheme: dark;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-shop-bg);
+  color: var(--color-shop-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+@theme {
+  --color-primary: var(--color-shop-primary);
+}
+
+/* Shop-Specific Styles */
+@layer components {
+  .btn-large {
+    @apply py-6 px-10 rounded-2xl text-2xl font-black transition-all active:scale-95 flex items-center justify-center gap-4 bg-[var(--color-shop-primary)] text-slate-900 shadow-xl shadow-emerald-500/20;
+  }
+
+  .card-shop {
+    @apply bg-[var(--color-shop-surface)] p-6 rounded-3xl shadow-xl border border-white/5 backdrop-blur-sm;
+  }
+
+  .glass-nav {
+    @apply bg-[var(--color-shop-surface)]/90 backdrop-blur-3xl border-white/5;
+  }
+}
+
+/* Custom Scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-600;
+}
