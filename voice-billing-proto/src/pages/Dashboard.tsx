@@ -117,7 +117,7 @@ const Dashboard: React.FC = () => {
                     <button
                         onClick={() => {
                             if (window.confirm('Are you sure you want to reset all data? / क्या आप सारा डेटा मिटाना चाहते हैं?')) {
-                                db.resetData ? db.resetData() : localStorage.clear() || window.location.reload();
+                                db.resetData();
                             }
                         }}
                         className="text-[10px] font-bold text-red-500/50 hover:text-red-500 uppercase tracking-widest transition-colors"

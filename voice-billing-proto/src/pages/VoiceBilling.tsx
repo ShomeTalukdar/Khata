@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Mic, X, Check, Save } from 'lucide-react';
+import { Mic, X } from 'lucide-react';
 import { useVoice } from '../hooks/useVoice';
 import { parseConversationalCommand } from '../utils/parser';
 import { db } from '../utils/db';
